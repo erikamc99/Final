@@ -1,12 +1,12 @@
-import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import styles from '../styles/FooterStyles';
 
 export default function Footer({ state, navigation }) {
   const icons = {
     Inicio: 'home',
     Estadísticas: 'bar-chart-2',
-    Tiempo: 'cloud',
+    Condiciones: 'cloud',
     Perfil: 'user',
   };
 
@@ -32,18 +32,3 @@ export default function Footer({ state, navigation }) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  footer: {
-    flexDirection: 'row',
-    height: 60,
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
-    backgroundColor: '#fff',
-  },
-  tab: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

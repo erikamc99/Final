@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Header from '../components/Header.jsx';
@@ -14,14 +13,18 @@ const Tab = createBottomTabNavigator();
 export default function TabNavigator() {
   return (
     <Tab.Navigator
-      screenOptions={{
-        header: (props) => <Header {...props} />,
+      screenOptions={({ route }) => ({
+        header: () => {
+          let type = 'main';
+          if (route.name === 'Estadísticas' || route.name === 'Condiciones') type = 'section';
+          return <Header type={type} />;
+        },
         tabBar: (props) => <Footer {...props} />,
-      }}
+      })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
       <Tab.Screen name="Estadísticas" component={StatScreen} />
-      <Tab.Screen name="Tiempo" component={WeatherScreen} />
+      <Tab.Screen name="Condiciones" component={WeatherScreen} />
       <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>
   );

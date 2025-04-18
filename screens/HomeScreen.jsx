@@ -1,19 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text } from 'react-native';
+import styles from '../styles/TemporallyScreens'
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Pantalla de Inicio</Text>
+    <View style={{ flex: 1, zIndex: 0 }}>
+      <View style={styles.container}>
+        <Text style={styles.text}>Pantalla de Inicio</Text>
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1, justifyContent: 'center', alignItems: 'center',
-  },
-  text: {
-    fontSize: 18,
-  }
-});
