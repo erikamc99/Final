@@ -1,21 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
 
 export default StyleSheet.create({
     header: {
+      height: height * 0.15,
       backgroundColor: '#4CAF50',
-      paddingTop: 50,
-      paddingBottom: 10,
+      paddingTop: 55,
       paddingHorizontal: 15,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
+      position: 'relative',
+      zIndex: 10,
     },
     left: {
       flex: 1,
-    },
-    titleWrapper: {
-      flexDirection: 'row',
-      alignItems: 'center',
     },
     actions: {
       flexDirection: 'row',
@@ -28,37 +29,33 @@ export default StyleSheet.create({
       backgroundColor: '#4CAF50',
       borderWidth: 0,
       borderRadius: 0,
-      elevation: 0,
       shadowColor: 'transparent',
-      flex: 1,
       zIndex: 1000,
       color: '#fff',
-      width: '50%',
+      width: width * 0.4,
     },
     
     dropdownContainer: {
-      width: '100vw',
-      left: '-15px',
-      top: '60px',
+      width: width,
+      left: -15,
       borderWidth: 0,
       backgroundColor: '#4CAF50',
       elevation: 0,
       shadowColor: 'transparent',
-      zIndex: 1000,
     },
     
     dropdownText: {
       color: '#fff',
       fontWeight: 'bold',
-      fontSize: 20,
+      fontSize: 24,
     },
     listItemLabel: {
       fontSize: 18,
       fontWeight: 'regular',
-      paddingLeft: '15px',
+      
     },
     listItem: {
-      height: '7vh',
+      height: height * 0.1,
       borderTopWidth: 0.75,
       borderTopColor: '#2E7D32',
     },
@@ -67,7 +64,6 @@ export default StyleSheet.create({
     },
     arrowIcon: { 
       tintColor: '#fff', 
-      marginTop: '5px',
     },
     tickIcon: {
       tintColor: '#fff',
