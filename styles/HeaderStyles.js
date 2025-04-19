@@ -17,11 +17,6 @@ export default StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
     },
-    title: {
-      color: '#fff',
-      fontSize: 18,
-      fontWeight: 'bold',
-    },
     actions: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -44,6 +39,7 @@ export default StyleSheet.create({
     dropdownContainer: {
       width: '100vw',
       left: '-15px',
+      top: '60px',
       borderWidth: 0,
       backgroundColor: '#4CAF50',
       elevation: 0,
@@ -54,19 +50,27 @@ export default StyleSheet.create({
     dropdownText: {
       color: '#fff',
       fontWeight: 'bold',
+      fontSize: 20,
     },
     listItemLabel: {
+      fontSize: 18,
+      fontWeight: 'regular',
       paddingLeft: '15px',
     },
     listItem: {
+      height: '7vh',
       borderTopWidth: 0.75,
       borderTopColor: '#2E7D32',
     },
     selectedItem: {
       backgroundColor: '#388E3C',
     },
-    tickIcon: { 
+    arrowIcon: { 
       tintColor: '#fff', 
-      marginRight: '5px' 
+      marginTop: '5px',
+    },
+    tickIcon: {
+      tintColor: '#fff',
+      paddingRight: '10px',
     },
   });
