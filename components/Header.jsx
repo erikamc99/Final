@@ -24,6 +24,7 @@ export default function Header({ type = 'main' }) {
       style={styles.dropdown}
       dropDownContainerStyle={styles.dropdownContainer}
       textStyle={styles.dropdownText}
+
       listItemLabelStyle={styles.listItemLabel}
       listItemContainerStyle={styles.listItem}
       selectedItemContainerStyle={styles.selectedItem}

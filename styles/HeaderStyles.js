@@ -29,42 +29,50 @@ export default StyleSheet.create({
       backgroundColor: '#4CAF50',
       borderWidth: 0,
       borderRadius: 0,
-      shadowColor: 'transparent',
+      boxShadowColor: 'transparent',
       zIndex: 1000,
       color: '#fff',
-      width: width * 0.4,
+      width: 170,
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
     },
     
     dropdownContainer: {
       width: width,
       left: -15,
+      top: height * 0.072,
       borderWidth: 0,
       backgroundColor: '#4CAF50',
       elevation: 0,
-      shadowColor: 'transparent',
+      boxShadowColor: 'transparent',
     },
     
     dropdownText: {
       color: '#fff',
       fontWeight: 'bold',
-      fontSize: 24,
+      fontSize: 22,
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      flexShrink: 1,
     },
+    
     listItemLabel: {
       fontSize: 18,
       fontWeight: 'regular',
-      
     },
+
     listItem: {
       height: height * 0.1,
-      borderTopWidth: 0.75,
-      borderTopColor: '#2E7D32',
     },
+
     selectedItem: {
-      backgroundColor: '#388E3C',
+      backgroundColor: '#388E3C',    
     },
+
     arrowIcon: { 
       tintColor: '#fff', 
     },
+
     tickIcon: {
       tintColor: '#fff',
       paddingRight: '10px',
