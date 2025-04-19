@@ -13,13 +13,13 @@ const Tab = createBottomTabNavigator();
 export default function TabNavigator() {
   return (
     <Tab.Navigator
+      tabBar={(props) => <Footer {...props} />}
       screenOptions={({ route }) => ({
         header: () => {
           let type = 'main';
           if (route.name === 'Estadísticas' || route.name === 'Condiciones') type = 'section';
           return <Header type={type} />;
         },
-        tabBar: (props) => <Footer {...props} />,
       })}
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   footer: {
     flexDirection: 'row',
-    height: 60,
+    height: 90,
     borderTopWidth: 1,
     borderTopColor: '#ddd',
     backgroundColor: '#fff',
