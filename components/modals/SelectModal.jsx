@@ -1,5 +1,5 @@
 import { Modal, View, Text, TouchableOpacity, FlatList } from 'react-native';
-import styles from '../../styles/modals/SelectModalStyles';
+import styles from '../../styles/components/modals/SelectModalStyles';
 
 export default function SelectModal({ visible, onClose, onSelect, options, title }) {
   return (

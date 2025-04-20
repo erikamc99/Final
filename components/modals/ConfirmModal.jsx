@@ -1,5 +1,5 @@
 import { Modal, View, Text, TouchableOpacity } from 'react-native';
-import styles from '../../styles/modals/ConfirmModalStyles.js';
+import styles from '../../styles/components/modals/ConfirmModalStyles.js';
 
 export default function ConfirmModal({ visible, onClose, onConfirm, message }) {
     return (

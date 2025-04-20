@@ -6,7 +6,6 @@ import SelectModal from '../../components/modals/SelectModal.jsx';
 import CountSelector from '../../components/CountSelector.jsx';
 import { useRoute, useNavigation } from '@react-navigation/native';
 
-
 export default function AddAnimalScreen() {
   const [animal, setAnimal] = useState(null);
   const [breed, setBreed] = useState(null);
@@ -15,6 +14,7 @@ export default function AddAnimalScreen() {
   const [showAnimalModal, setShowAnimalModal] = useState(false);
   const [showBreedModal, setShowBreedModal] = useState(false);
   
+  // Borrar cuando se conecte a back
   const animalOptions = [
     { label: 'Gallo', value: 'gallo' },
     { label: 'Gallina', value: 'gallina' },
