@@ -3,7 +3,7 @@ import styles from '../styles/ProfileScreenStyles';
 import { useUser } from '../context/UserContext'; 
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
-import ConfirmModal from '../components/ConfirmModal';
+import ConfirmModal from '../components/modals/ConfirmModal';
 
 export default function ProfileScreen() {
   const { user, setUser } = useUser();

@@ -1,7 +1,6 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles/NotificationScreenStyles.js';
-import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import SectionHeader from '../components/SectionHeader.jsx';
 
 //BORRAR al conectar al back
 const notifications = [
@@ -63,16 +62,9 @@ const getNotificationIcon = (type) => {
 
 export default function NotificationScreen() {
     
-    const navigation = useNavigation();
-
     return (
         <ScrollView style={styles.container}>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-                    <Ionicons name="arrow-back" size={24} color="#333" />
-                </TouchableOpacity>
-                <Text style={styles.headerTitle}>Notificaciones</Text>
-            </View>
+          <SectionHeader sectionTitle="Notificaciones" />
             {notifications.map((n) => (
                 <View key={n.id} style={styles.card}>
                 <Image source={require('../assets/img/alert-icon.png')} style={styles.alertIcon} />

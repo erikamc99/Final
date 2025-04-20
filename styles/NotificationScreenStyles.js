@@ -6,24 +6,7 @@ export default StyleSheet.create({
         backgroundColor: '#f6f6f6',
         flex: 1,
       },
-
-      header: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 20,
-        marginTop: 60,
-      },
-
-      backButton: {
-        marginRight: 8,
-      },
-
-      headerTitle: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#333',
-      },
-    
+      
       card: {
         flexDirection: 'row',
         alignItems: 'center',

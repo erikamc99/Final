@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {  Ionicons, Feather } from '@expo/vector-icons';
-import styles from '../styles/HeaderStyles';
+import styles from '../styles/components/HeaderStyles';
 import { useSpace } from '../context/SpaceContext';
 import { useNavigation } from '@react-navigation/native';
 
@@ -50,7 +50,7 @@ export default function Header({ type = 'main' }) {
 
   <View style={styles.actions}>
     {type === 'main' && (
-      <TouchableOpacity style={styles.iconButton} onPress={() => console.log('Agregar espacio')}>
+      <TouchableOpacity style={styles.iconButton} onPress={() => navigation.navigate('NuevoEspacio')}>
         <Feather name="plus" size={30} color="#fff" />
       </TouchableOpacity>
     )}

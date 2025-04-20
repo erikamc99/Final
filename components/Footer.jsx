@@ -1,6 +1,6 @@
 import { View, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import styles from '../styles/FooterStyles.js';
+import styles from '../styles/components/FooterStyles.js';
 
 export default function Footer({ state, navigation }) {
 
