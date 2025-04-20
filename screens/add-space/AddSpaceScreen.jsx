@@ -1,6 +1,5 @@
 import styles from '../../styles/add-space/AddSpaceScreenStyles.js';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import SectionHeader from '../../components/SectionHeader.jsx';
@@ -10,7 +9,6 @@ export default function AddSpaceScreen() {
   const navigation = useNavigation();
 
   const [spaceName, setSpaceName] = useState('');
-  const [open, setOpen] = useState(false);
   const [type, setType] = useState(null);
   const [showTypeModal, setShowTypeModal] = useState(false);
 
