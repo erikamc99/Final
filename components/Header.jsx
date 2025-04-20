@@ -4,11 +4,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import {  Ionicons, Feather } from '@expo/vector-icons';
 import styles from '../styles/HeaderStyles';
 import { useSpace } from '../context/SpaceContext';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Header({ type = 'main' }) {
   const { selectedSpace, setSelectedSpace, spaces } = useSpace();
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState(spaces.map(space => ({ label: space, value: space })));
+  const navigation = useNavigation();
 
   return (
 <View style={styles.header}>
@@ -57,7 +59,7 @@ export default function Header({ type = 'main' }) {
         <Ionicons name="settings-outline" size={30} color="#fff" />
       </TouchableOpacity>
     )}
-    <TouchableOpacity style={styles.iconButton} onPress={() => console.log('Notificaciones')}>
+    <TouchableOpacity style={styles.iconButton} onPress={() => navigation.navigate('Notificaciones')}>
       <Ionicons name="notifications-outline" size={30} color="#fff" />
     </TouchableOpacity>
   </View>
