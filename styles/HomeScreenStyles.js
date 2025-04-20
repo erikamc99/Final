@@ -7,8 +7,8 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
   },
   cardLarge: {
-    backgroundColor: '#f6f6f6',
     padding: 20,
+    backgroundColor: '#f6f6f6',
     marginBottom: 20,
     borderRadius: 20,
     shadowColor: '#000',
@@ -56,7 +56,8 @@ export default StyleSheet.create({
     backgroundColor: '#f6f6f6',
     flex: 1,
     justifyContent: 'center',
-    paddingTop: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 5,
     borderRadius: 20,
     shadowColor: '#000',
     shadowOpacity: 0.1,
@@ -65,8 +66,9 @@ export default StyleSheet.create({
     elevation: 2,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '700',
     marginBottom: 10,
+    marginLeft: 10,
   },
 });

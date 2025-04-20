@@ -1,23 +1,25 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../../styles/components/cards/SatisfactionMeterStyles';
 
 export default function SatisfactionMeter({ value }) {
-  const getSatisfactionLevel = (val) => {
-    if (val <= 33) return { label: 'Bajo', color: '#EF5350',  icon: 'sad' };
-    if (val <= 66) return { label: 'Medio', color: '#FFA726', icon: 'remove-circle-outline' };
-    return { label: 'Alto', color: '#66BB6A', icon: 'happy' };
+  const getSatisfactionLevel = (value) => {
+    return {  icon: 'arrow-down', value:75, };
   };
 
-  const { label, color, icon } = getSatisfactionLevel(value);
+  const { color, icon } = getSatisfactionLevel(value);
   const positionPercent = `${value}%`;
 
   return (
-      <View style={styles.barBackground}>
-        <View style={[styles.fill, { width: `${value}%`, backgroundColor: color }]} />
-        <View style={[styles.indicator, { left: positionPercent }]}>
-            <Ionicons name={icon} size={30} color="#000" />
-        </View>
+    <View style={styles.container}>
+      <View style={styles.barContainer}>
+        <Ionicons name={icon} size={24} style={{ position: 'absolute', left: positionPercent, top:0, }} />
+        <View style={[styles.cornerLeftSection, { backgroundColor: '#EF5350' }]} />
+        <View style={[styles.section, { backgroundColor: '#FFA726' }]} />
+        <View style={[styles.section, { backgroundColor: '#FFEB3B' }]} />
+        <View style={[styles.section, { backgroundColor: '#95bb66' }]} />
+        <View style={[styles.cornerRightSection, { backgroundColor: '#66bb6a' }]} />
       </View>
+    </View>
   );
 }
