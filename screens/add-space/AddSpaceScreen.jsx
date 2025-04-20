@@ -6,32 +6,35 @@ import SectionHeader from '../../components/SectionHeader.jsx';
 import SelectModal from '../../components/modals/SelectModal.jsx';
 
 export default function AddSpaceScreen() {
-  const navigation = useNavigation();
+    const navigation = useNavigation();
 
-  const [spaceName, setSpaceName] = useState('');
-  const [type, setType] = useState(null);
-  const [showTypeModal, setShowTypeModal] = useState(false);
+    const [spaceName, setSpaceName] = useState('');
+    const [type, setType] = useState(null);
+    const [showTypeModal, setShowTypeModal] = useState(false);
 
-  const spaceTypes = [
-    { label: 'Granja', value: 'granja' },
-    { label: 'Corral', value: 'corral' },
-    { label: 'Huerto', value: 'huerto' },
-  ];
+    const spaceTypes = [
+        { label: 'Granja', value: 'granja' },
+        { label: 'Corral', value: 'corral' },
+        { label: 'Huerto', value: 'huerto' },
+    ];
 
-  const [error, setError] = useState({ name: '', type: '' });
+    const [error, setError] = useState({ name: '', type: '' });
 
-  const validateAndProceed = () => {
-    const newError = { name: '', type: '' };
+    const validateAndProceed = () => {
+        const newError = { name: '', type: '' };
 
-    if (!spaceName.trim()) newError.name = 'El nombre es obligatorio';
-    if (!type) newError.type = 'Selecciona un tipo de espacio';
+        if (!spaceName.trim()) newError.name = 'El nombre es obligatorio';
+        if (!type) newError.type = 'Selecciona un tipo de espacio';
 
-    setError(newError);
+        setError(newError);
 
-    if (!newError.name && !newError.type) {
-      navigation.navigate('NuevoAnimal');
-    }
-  };  
+        if (!newError.name && !newError.type) {
+            navigation.navigate('NuevoAnimal', {
+            spaceName,
+            type,
+            });
+        }
+    }   
 
   return (
     <View style={styles.screen}>

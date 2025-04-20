@@ -4,12 +4,14 @@ import { useState } from 'react';
 import SectionHeader from '../../components/SectionHeader.jsx';
 import SelectModal from '../../components/modals/SelectModal.jsx';
 import CountSelector from '../../components/CountSelector.jsx';
+import { useRoute, useNavigation } from '@react-navigation/native';
+
 
 export default function AddAnimalScreen() {
   const [animal, setAnimal] = useState(null);
   const [breed, setBreed] = useState(null);
-  const [count, setCount] = useState(1);
-
+  const [quantity, setQuantity] = useState(1);
+  
   const [showAnimalModal, setShowAnimalModal] = useState(false);
   const [showBreedModal, setShowBreedModal] = useState(false);
   
@@ -18,11 +20,16 @@ export default function AddAnimalScreen() {
     { label: 'Gallina', value: 'gallina' },
     { label: 'Pollito', value: 'pollito' },
   ];
-
+  
   const breedOptions = [
     { label: 'Común', value: 'comun' },
     { label: 'Pita Pinta', value: 'pita-pinta' },
   ];
+  
+  const route = useRoute();
+  const navigation = useNavigation();
+  
+  const { spaceName, type } = route.params || {};
 
   return (
     <View style={styles.container}>
@@ -31,7 +38,7 @@ export default function AddAnimalScreen() {
       <Text style={styles.label}>Animal</Text>
       <TouchableOpacity onPress={() => setShowAnimalModal(true)} style={styles.selector}>
         <Text style={animal ? styles.selectorText : styles.placeholder}>
-          {animal ? animalOptions.find(opt => opt.value === animal)?.label : 'Selecciona un animal'}
+          {animal ? animalOptions.find(opt => opt.value === animal)?.label : 'Seleccione un animal'}
         </Text>
       </TouchableOpacity>
       <SelectModal
@@ -39,13 +46,13 @@ export default function AddAnimalScreen() {
         onClose={() => setShowAnimalModal(false)}
         onSelect={setAnimal}
         options={animalOptions}
-        title="Selecciona un animal"
+        title="Seleccione un animal"
       />
 
       <Text style={styles.label}>Raza</Text>
       <TouchableOpacity onPress={() => setShowBreedModal(true)} style={styles.selector}>
         <Text style={breed ? styles.selectorText : styles.placeholder}>
-          {breed ? breedOptions.find(opt => opt.value === breed)?.label : 'Selecciona una raza'}
+          {breed ? breedOptions.find(opt => opt.value === breed)?.label : 'Seleccione una raza'}
         </Text>
       </TouchableOpacity>
       <SelectModal
@@ -53,16 +60,31 @@ export default function AddAnimalScreen() {
         onClose={() => setShowBreedModal(false)}
         onSelect={setBreed}
         options={breedOptions}
-        title="Selecciona una raza"
+        title="Seleccione una raza"
       />
 
       <Text style={styles.label}>Cantidad</Text>
-      <CountSelector count={count} setCount={setCount} />
+      <CountSelector count={quantity} setCount={setQuantity} />
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => console.log({ animal, breed, quantity })}
-        disabled={!animal || !breed}
+        onPress={() => { //Cambiar console.log por función a back
+        const data = {
+          space: {
+            name: spaceName,
+            type: type,
+          },
+          animal: {
+            type: animal,
+            breed,
+            quantity,
+          },
+        };
+
+        console.log('Datos completos:', data);
+        navigation.popToTop();
+      }}
+      disabled={!animal || !breed}
       >
         <Text style={styles.buttonText}>Guardar</Text>
       </TouchableOpacity>
