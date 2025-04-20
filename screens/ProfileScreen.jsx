@@ -1,8 +1,9 @@
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/ProfileScreenStyles';
 import { useUser } from '../context/UserContext'; 
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
+import ConfirmModal from '../components/ConfirmModal';
 
 export default function ProfileScreen() {
   const { user, setUser } = useUser();
@@ -67,13 +68,19 @@ export default function ProfileScreen() {
         
         <View  style={styles.logoutContainer}>
         {!isEditing ? (
-          <TouchableOpacity onPress={handleLogout}>
+          <TouchableOpacity onPress={() => setShowConfirmLogout(true)}>
             <Text style={styles.logoutText}>Cerrar sesión</Text>
           </TouchableOpacity>
         ) : (
           <Text style={[styles.logoutText, { color: 'transparent' }]}>Cerrar sesión</Text>
         )}
         </View>
+        <ConfirmModal
+          visible={showConfirmLogout}
+          onClose={() => setShowConfirmLogout(false)}
+          onConfirm={confirmLogout}
+          message="¿Estás seguro de que quieres cerrar sesión?"
+        />
       </View>
   );
 }
