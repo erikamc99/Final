@@ -3,7 +3,6 @@ import { Feather } from '@expo/vector-icons';
 import styles from '../styles/FooterStyles.js';
 
 export default function Footer({ state, navigation }) {
-  console.log('El footer existe');
 
   const icons = {
     Inicio: 'home',
@@ -11,7 +10,6 @@ export default function Footer({ state, navigation }) {
     Condiciones: 'cloud',
     Perfil: 'user',
   };
-
 
   return (
     <View style={styles.footer}>
