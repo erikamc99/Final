@@ -4,7 +4,8 @@ import styles from '../../styles/components/cards/AnimalCountsCardStyles.js';
 
 export default function AnimalCountsCard({ galloCount, gallinaCount, pollitoCount }) {
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity>
+      <View style={styles.cardContainer}>
       <View style={styles.animalRow}>
         <View style={styles.animalItem}>
           <Image source={require('../../assets/img/gallina-icon.png')} style={styles.animalImage} />
@@ -19,6 +20,7 @@ export default function AnimalCountsCard({ galloCount, gallinaCount, pollitoCoun
           <Image source={require('../../assets/img/gallo-icon.png')} style={styles.animalImage} />
         </View>
       </View>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 }

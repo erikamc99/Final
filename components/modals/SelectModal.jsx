@@ -3,8 +3,8 @@ import styles from '../../styles/components/modals/SelectModalStyles';
 
 export default function SelectModal({ visible, onClose, onSelect, options, title }) {
   return (
-    <Modal transparent visible={visible} animationType="slide">
-      <View style={styles.overlay}>
+    <Modal transparent visible={visible} >
+      <View style={styles.overlay} animationType="slide">
         <View style={styles.modal}>
           <Text style={styles.title}>{title}</Text>
 
