@@ -1,42 +1,54 @@
-import { View, ScrollView } from 'react-native';
-import SectionHeader from '../components/SectionHeader';
+import { ScrollView } from 'react-native';
 import AnimalCard from '../components/cards/AnimalCard';
 
 export default function AnimalManagementScreen() {
-  const gallinas = [
-    { name: 'Común', count: 4 },
-    { name: 'Pita', count: 3 },
-  ];
-  const gallos = [
-    { name: 'Común', count: 2 },
-  ];
-  const pollitos = [
-    { name: 'Pita', count: 6 },
+  const [expandedType, setExpandedType] = useState(null);
+
+  const animalTypes = [
+    {
+      key: 'gallina',
+      icon: require('../assets/img/gallina-icon.png'),
+      count: 24,
+      breeds: [
+        { name: 'Leghorn', count: 10 },
+        { name: 'Rhode Island', count: 14 },
+      ],
+    },
+    {
+      key: 'pollito',
+      icon: require('../assets/img/pollito-icon.png'),
+      count: 12,
+      breeds: [
+        { name: 'Amarillo', count: 5 },
+        { name: 'Marrón', count: 7 },
+      ],
+    },
+    {
+      key: 'gallo',
+      icon: require('../assets/img/gallo-icon.png'),
+      count: 8,
+      breeds: [
+        { name: 'Fénix', count: 4 },
+        { name: 'Andaluz', count: 4 },
+      ],
+    },
   ];
 
   return (
-    <View style={{ flex: 1 }}>
-      <SectionHeader title="Gestión de animales" />
-      <ScrollView contentContainerStyle={{ padding: 16 }}>
+    <ScrollView style={styles.screenContainer} >
+      <SectionHeader sectionTitle="Gestión de Animales" />
+      {animalTypes.map((type) => (
         <AnimalCard
-          icon={require('../assets/img/gallina-icon.png')}
-          count={7}
-          breeds={gallinas}
-          onToggleDropdown={() => console.log('Abrir gallinas')}
+          key={type.key}
+          icon={type.icon}
+          count={type.count}
+          breeds={type.breeds}
+          isExpanded={expandedType === type.key}
+          onToggle={() =>
+            setExpandedType(expandedType === type.key ? null : type.key)
+          }
         />
-        <AnimalCard
-          icon={require('../assets/img/gallo-icon.png')}
-          count={2}
-          breeds={gallos}
-          onToggleDropdown={() => console.log('Abrir gallos')}
-        />
-        <AnimalCard
-          icon={require('../assets/img/pollito-icon.png')}
-          count={6}
-          breeds={pollitos}
-          onToggleDropdown={() => console.log('Abrir pollitos')}
-        />
-      </ScrollView>
-    </View>
+      ))}
+    </ScrollView>
   );
 }

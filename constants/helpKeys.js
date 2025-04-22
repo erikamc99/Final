@@ -1,0 +1,1 @@
+export const HELP_SEEN_KEY = 'help_seen';
