@@ -1,17 +1,29 @@
 import styles from '../styles/components/LoginFormStyles'
+import { useUser } from '../context/UserContext';
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import FormButton from './FormButton';
+import ForgotPasswordModal from './modals/ForgotPasswordModal';
 import { useNavigation } from '@react-navigation/native';
 
 export default function LoginForm() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const { user, setIsLoggedIn } = useUser();
     const navigation = useNavigation();
   
+    const [input, setInput] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+  
     const handleLogin = () => {
-      // Login
-      console.log('Iniciar sesión con:', username, password);
+      const match =
+        (input === user.username || input === user.email) &&
+        password === user.password;
+  
+      if (match) {
+        setIsLoggedIn(true);
+      } else {
+        setError('Credenciales incorrectas');
+      }
     };
   
     return (
@@ -46,6 +58,7 @@ export default function LoginForm() {
         <Text style={styles.linkText}>¿Ha olvidado su contraseña?</Text>
         </TouchableOpacity>
 
+        {error ? <Text>{error}</Text> : null}
         <FormButton onPress={handleLogin} text="INICIAR SESIÓN" />
 
         <View style={styles.loginPrompt}>

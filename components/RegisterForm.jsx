@@ -1,5 +1,6 @@
 import styles from '../styles/components/RegisterFormStyles'
 import { useState } from 'react';
+import { useUser } from '../context/UserContext';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import FormButton from './FormButton';
 import { useNavigation } from '@react-navigation/native';
@@ -13,14 +14,30 @@ export default function RegisterForm() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
+  const { setUser, setIsLoggedIn } = useUser();
+
   const handleRegister = () => {
+    if (!username || !email || !password || !confirmPassword) {
+      setError('Todos los campos son obligatorios');
+      return;
+    }
+  
     if (password !== confirmPassword) {
       setError('Las contraseñas no coinciden');
       return;
     }
+  
     setError('');
-    // Registro
-    console.log({ username, email, password });
+  
+    setUser({
+      username,
+      name: username, 
+      email,
+      password,
+      avatarUrl: '../assets/default-avatar.png',
+    });
+  
+    setIsLoggedIn(true);
   };
 
   return (
