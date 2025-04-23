@@ -17,4 +17,8 @@ export const helpMessages = Object.freeze({
     'Desde aquí puedes acceder a las principales secciones.',
     'Toca las tarjetas para ver más detalles.'
   ]),
+  Condiciones: Object.freeze([
+    'Aquí puedes ver las condiciones actuales de tu granja.',
+    'Desliza para ver la temperatura a lo largo del día.'
+  ]),
 });

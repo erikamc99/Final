@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import styles from '../../styles/components/cards/ConditionsBannerStyles';
 
 export default function ConditionsBanner({ temperature, satisfaction }) {
@@ -18,6 +18,7 @@ export default function ConditionsBanner({ temperature, satisfaction }) {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
+        <Image source={require('../../assets/img/temp-icon.png')} style={styles.icon} />
         <Text style={styles.temperature}>{temperature}°C</Text>
       </View>
       <View style={styles.right}>

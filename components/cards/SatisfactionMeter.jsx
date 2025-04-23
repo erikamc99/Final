@@ -15,8 +15,9 @@ export default function SatisfactionMeter({ value }) {
     <View style={styles.container}>
       <View style={styles.barContainer}>
 {/*         {isLow && <Ionicons name={icon} size={24} style={{ position: 'absolute', right: `${positionPercent}`, top: 0 }} />}
+            {!isLow && 
          */}
-         {!isLow && <Ionicons name={icon} size={24} style={{ position: 'absolute', left: positionPercent, top: 0 }} />}
+         <Ionicons name={icon} size={24} style={{ position: 'absolute', left: positionPercent, top: 0 }} />
         <View style={[styles.cornerLeftSection, { backgroundColor: '#EF5350' }]} />
         <View style={[styles.section, { backgroundColor: '#FFA726' }]} />
         <View style={[styles.section, { backgroundColor: '#FFEB3B' }]} />

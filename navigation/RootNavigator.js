@@ -7,12 +7,16 @@ export default function RootNavigator() {
     const { isLoggedIn } = useUser();
 
     return (
-        <NavigationContainer>
+/*         <NavigationContainer>
         {isLoggedIn ? (
             <MainNavigator />
         ) : (
             <AuthNavigator />
         )}
-        </NavigationContainer>
+        </NavigationContainer> */
+        <NavigationContainer>
+
+            <MainNavigator />
+        </NavigationContainer> 
     );
 }

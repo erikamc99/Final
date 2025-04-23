@@ -46,7 +46,7 @@ const notifications = [
 const getNotificationIcon = (type) => {
     switch (type) {
       case 'temperatura':
-        return require('../assets/img/temp-icon.svg');
+        return require('../assets/img/temp-icon.png');
       case 'humedad':
         return require('../assets/img/humidity-icon.png');
       case 'contaminacion':

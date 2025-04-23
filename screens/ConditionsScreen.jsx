@@ -1,7 +1,12 @@
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import styles from '../styles/ConditionsScreenStyles'
 import ConditionsBanner from '../components/cards/ConditionsBanner';
 import TemperatureCard from '../components/cards/TemperatureCard';
+import PercentCondition from '../components/PercentCondition';
+import PercentResources from '../components/PercentResources';
+import HelpModal from '../components/modals/HelpModal';
+import useHelp from '../hooks/useHelp';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function ConditionsScreen() {
   const temperature = 22;
@@ -15,8 +20,20 @@ export default function ConditionsScreen() {
   const water = 70;
   const food = 50;
 
+    const {
+      visible,
+      currentText,
+      isLast,
+      onNext,
+      onSkip,
+      triggerManually
+    } = useHelp(('Condiciones'));
+
   return (
     <ScrollView style={styles.container}>
+      <TouchableOpacity onPress={triggerManually} style={styles.helpButton}>
+        <Ionicons name="help-circle-outline" style={styles.helpIcon} />
+      </TouchableOpacity>
       <ConditionsBanner temperature={temperature} satisfaction={satisfaction} />
 
       <Text style={styles.sectionTitle}>HOY</Text>
@@ -29,10 +46,19 @@ export default function ConditionsScreen() {
       <PercentCondition title="Contaminación" percentage={contamination} color="#FF5252" />
       <PercentCondition title="Humedad" percentage={humidity} color="#2196F3" />
 
+      <Text style={styles.title}>Suministros</Text>
       <View style={styles.resourcesRow}>
-        <PercentResources title="Agua" percentage={water} color="#00BCD4" />
-        <PercentResources title="Comida" percentage={food} color="#8BC34A" />
+        <PercentResources label="Agua" percentage={water} color="#00BCD4" />
+        <PercentResources label="Comida" percentage={food} color="#905010" />
       </View>
+
+      <HelpModal
+        visible={visible}
+        text={currentText}
+        isLast={isLast}
+        onNext={onNext}
+        onSkip={onSkip}
+      />      
     </ScrollView>
   );
 }
