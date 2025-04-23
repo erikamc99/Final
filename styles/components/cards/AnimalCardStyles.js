@@ -16,8 +16,14 @@ export default StyleSheet.create({
     },
     topRow: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-end',
         justifyContent: 'space-between',
+    },
+    rightRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        textAlign: 'center',
+        alignItems: 'flex-end',
     },
     icon: {
         width: 60,
@@ -32,8 +38,9 @@ export default StyleSheet.create({
     totalBreedCount: {
         fontSize: 16,
     },
-    dropdownButton: {
-        padding: 4,
+    dropdownIcon: {
+        fontSize: 18,
+        marginLeft: 5,
     },
     breedList: {
         marginTop: 12,
@@ -87,7 +94,6 @@ export default StyleSheet.create({
     },
     deleteIcon: {
         fontSize: 22,
-        marginLeft: 5,
         color: 'red',
     },
     saveIcon: {

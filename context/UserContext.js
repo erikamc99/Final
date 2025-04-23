@@ -5,7 +5,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState({
     username: "usuario",
-    name: "Usuario Ejemplo",
+    name: "Usuario de Ejemplo",
     email: "usuario@ejemplo.com",
     password: '12345678Q',
     avatarUrl: '../assets/img/default-avatar.png',

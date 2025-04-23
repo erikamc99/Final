@@ -37,14 +37,15 @@ export default function AnimalCard({ icon, count, breeds, totalBreeds, isExpande
       <View style={styles.topRow}>
         <Image source={icon} style={styles.icon} />
         <Text style={styles.count}>{count}</Text>
-        <Text style={styles.totalBreedCount}>{totalBreeds} Especies</Text>
-        <TouchableOpacity style={styles.dropdownButton} onPress={onToggle}>
-          <Ionicons
-            name={isExpanded ? "chevron-up-outline" : "chevron-down-outline"}
-            size={24}
-            color="gray"
-          />
-        </TouchableOpacity>
+        <View style={styles.rightRow}>
+          <Text style={styles.totalBreedCount}>{totalBreeds} Especies</Text>
+          <TouchableOpacity onPress={onToggle}>
+            <Ionicons
+              name={isExpanded ? "chevron-up-outline" : "chevron-down-outline"}
+              style={styles.dropdownIcon}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {isExpanded && (

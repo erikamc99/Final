@@ -6,7 +6,7 @@ import { Feather } from '@expo/vector-icons';
 import ConfirmModal from '../components/modals/ConfirmModal';
 
 export default function ProfileScreen() {
-  const { user, setUser } = useUser();
+  const { user, setUser, setIsLoggedIn } = useUser();
   const [isEditing, setIsEditing] = useState(false);
   const [editableUser, setEditableUser] = useState(user);
   const [showPassword, setShowPassword] = useState(false);
@@ -26,14 +26,13 @@ export default function ProfileScreen() {
   };
 
   const handleLogout = () => {
-    console.log('Cerrando sesión...');
-    // AÑADIR logout y navegación a Welcome
-    // setIsLoggedIn(false);
+    setIsLoggedIn(false);
   }
 
   const confirmLogout = () => {
     setShowConfirmLogout(false);
     console.log('¿Quieres cerrar sesión?');
+    handleLogout();
   }
 
   return (
