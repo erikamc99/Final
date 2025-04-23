@@ -5,7 +5,7 @@ import Footer from '../components/Footer.jsx';
 
 import HomeScreen from '../screens/HomeScreen.jsx';
 import StatScreen from '../screens/StatScreen.jsx';
-import WeatherScreen from '../screens/WeatherScreen.jsx';
+import ConditionsScreen from '../screens/ConditionsScreen.jsx';
 import ProfileScreen from '../screens/ProfileScreen.jsx';
 
 const Tab = createBottomTabNavigator();
@@ -24,7 +24,7 @@ export default function TabNavigator() {
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
       <Tab.Screen name="Estadísticas" component={StatScreen} />
-      <Tab.Screen name="Condiciones" component={WeatherScreen} />
+      <Tab.Screen name="Condiciones" component={ConditionsScreen} />
       <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>
   );
