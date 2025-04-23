@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
   },
   cardLarge: {
-    padding: 20,
+    padding: 25,
     backgroundColor: '#f6f6f6',
     marginBottom: 20,
     borderRadius: 20,
@@ -20,15 +20,14 @@ export default StyleSheet.create({
   cardSmall: {
     backgroundColor: '#f6f6f6',
     borderRadius: 20,
-    flex: 1,
     padding: 20,
-    marginRight: 10,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
     elevation: 2,
-  },
+    flex: 1,
+    },
   row: {
     flexDirection: 'row',
     marginBottom: 20,
@@ -70,5 +69,16 @@ export default StyleSheet.create({
     fontWeight: '700',
     marginBottom: 10,
     marginLeft: 10,
+  },
+  helpButton: {
+    alignSelf: 'flex-end',
+    marginBottom: 10,
+    position: 'absolute',
+    top: -15,
+    right: -15,
+  },
+  helpIcon: {
+    fontSize: 22,
+    color: '#333',
   },
 });

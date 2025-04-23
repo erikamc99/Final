@@ -1,10 +1,11 @@
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from '../styles/HomeScreenStyles';
 import SatisfactionMeter from '../components/cards/SatisfactionMeter';
 import AnimalCountsCard from '../components/cards/AnimalCountsCard';
 import useHelp from '../hooks/useHelp';
 import HelpModal from '../components/modals/HelpModal';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function HomeScreen() {
   // Borrar al conectar a back
@@ -24,13 +25,17 @@ export default function HomeScreen() {
     isLast,
     onNext,
     onSkip,
+    triggerManually
   } = useHelp(('Home'));
 
   const navigation = useNavigation();
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.cardLarge}>
+      <TouchableOpacity onPress={triggerManually} style={styles.helpButton}>
+        <Ionicons name="help-circle-outline" style={styles.helpIcon} />
+      </TouchableOpacity>
+      <View style={{...styles.cardLarge, marginTop: 15}}>
         <Text style={styles.cardTitle}>Temperatura</Text>
         <View style={styles.cardContent}>
           <Text style={styles.cardValue}>{temperature}°C</Text>
@@ -39,7 +44,7 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.row}>
-        <View style={styles.cardSmall}>
+        <View style={{ ...styles.cardSmall, marginRight: 20 }}>
           <Text style={styles.cardTitle}>Humedad</Text>
           <View style={styles.cardContent}>
             <Text style={styles.cardValue}>{humidity}%</Text>

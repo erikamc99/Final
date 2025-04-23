@@ -4,16 +4,19 @@ import styles from '../../styles/components/cards/SatisfactionMeterStyles';
 
 export default function SatisfactionMeter({ value }) {
   const getSatisfactionLevel = (value) => {
-    return {  icon: 'arrow-down', value:75, };
+    return {  icon: 'caret-down-outline', value:75, };
   };
 
-  const { color, icon } = getSatisfactionLevel(value);
+  const { icon } = getSatisfactionLevel(value);
   const positionPercent = `${value}%`;
+ // const isLow = value < 50;
 
   return (
     <View style={styles.container}>
       <View style={styles.barContainer}>
-        <Ionicons name={icon} size={24} style={{ position: 'absolute', left: positionPercent, top:0, }} />
+{/*         {isLow && <Ionicons name={icon} size={24} style={{ position: 'absolute', right: `${positionPercent}`, top: 0 }} />}
+         */}
+         {!isLow && <Ionicons name={icon} size={24} style={{ position: 'absolute', left: positionPercent, top: 0 }} />}
         <View style={[styles.cornerLeftSection, { backgroundColor: '#EF5350' }]} />
         <View style={[styles.section, { backgroundColor: '#FFA726' }]} />
         <View style={[styles.section, { backgroundColor: '#FFEB3B' }]} />

@@ -1,11 +1,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../../styles/components/cards/AnimalCountsCardStyles.js';
-import { useNavigation } from '@react-navigation/native';
 
 export default function AnimalCountsCard({ galloCount, gallinaCount, pollitoCount, openScreen }) {
-
-  const navigation = useNavigation();
   
   return (
     <TouchableOpacity onPress={openScreen} >
