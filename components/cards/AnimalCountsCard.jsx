@@ -1,10 +1,14 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../../styles/components/cards/AnimalCountsCardStyles.js';
+import { useNavigation } from '@react-navigation/native';
 
 export default function AnimalCountsCard({ galloCount, gallinaCount, pollitoCount }) {
+
+  const navigation = useNavigation();
+  
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={navigation.navigate('GestionAnimales')} >
       <View style={styles.cardContainer}>
       <View style={styles.animalRow}>
         <View style={styles.animalItem}>
@@ -17,7 +21,7 @@ export default function AnimalCountsCard({ galloCount, gallinaCount, pollitoCoun
         </View>
         <View style={styles.animalItem}>
           <Text style={styles.animalCount}>{galloCount}</Text>
-          <Image source={require('../../assets/img/gallo-icon.png')} style={styles.animalImage} />
+          <Image source={require('../../assets/img/gallo-reverse-icon.png')} style={styles.animalImage} />
         </View>
       </View>
       </View>

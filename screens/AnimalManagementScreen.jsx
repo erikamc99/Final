@@ -1,9 +1,11 @@
 import { ScrollView } from 'react-native';
 import AnimalCard from '../components/cards/AnimalCard';
+import { useState } from 'react';
+import styles from '../styles/AnimalManagementScreenStyles';
+import SectionHeader from '../components/SectionHeader';
 
 export default function AnimalManagementScreen() {
   const [expandedType, setExpandedType] = useState(null);
-
   const animalTypes = [
     {
       key: 'gallina',
@@ -32,7 +34,10 @@ export default function AnimalManagementScreen() {
         { name: 'Andaluz', count: 4 },
       ],
     },
-  ];
+  ].map((animal) => ({
+    ...animal,
+    totalBreeds: animal.breeds.length,
+  }));
 
   return (
     <ScrollView style={styles.screenContainer} >
@@ -43,6 +48,7 @@ export default function AnimalManagementScreen() {
           icon={type.icon}
           count={type.count}
           breeds={type.breeds}
+          totalBreeds={type.totalBreeds}
           isExpanded={expandedType === type.key}
           onToggle={() =>
             setExpandedType(expandedType === type.key ? null : type.key)
