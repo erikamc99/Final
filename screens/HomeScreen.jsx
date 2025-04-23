@@ -2,6 +2,8 @@ import { View, Text, Image, ScrollView } from 'react-native';
 import styles from '../styles/HomeScreenStyles';
 import SatisfactionMeter from '../components/cards/SatisfactionMeter';
 import AnimalCountsCard from '../components/cards/AnimalCountsCard';
+import useHelp from '../hooks/useHelp';
+import HelpModal from '../components/modals/HelpModal';
 
 export default function HomeScreen() {
   // Borrar al conectar a back
@@ -15,8 +17,23 @@ export default function HomeScreen() {
 
   const satisfactionValue = 75;
 
+  const {
+    visible,
+    currentText,
+    isLast,
+    onNext,
+    onSkip,
+  } = useHelp();
+
   return (
     <ScrollView style={styles.container}>
+      <HelpModal
+        visible={visible}
+        text={currentText}
+        isLast={isLast}
+        onNext={onNext}
+        onSkip={onSkip}
+      />
       <View style={styles.cardLarge}>
         <Text style={styles.cardTitle}>Temperatura</Text>
         <View style={styles.cardContent}>
