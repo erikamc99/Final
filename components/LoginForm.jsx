@@ -13,6 +13,7 @@ export default function LoginForm() {
     const [input, setInput] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [modalVisible, setModalVisible] = useState(false);
   
     const handleLogin = () => {
       const match =
@@ -33,8 +34,8 @@ export default function LoginForm() {
         <TextInput
           placeholder="Usuario"
           style={styles.input}
-          value={username}
-          onChangeText={setUsername}
+          value={input}
+          onChangeText={setInput}
         />
   
         <TextInput
@@ -58,7 +59,7 @@ export default function LoginForm() {
         <Text style={styles.linkText}>¿Ha olvidado su contraseña?</Text>
         </TouchableOpacity>
 
-        {error ? <Text>{error}</Text> : null}
+      {error ? <Text style={styles.errorText}>{error}</Text> : null}
         <FormButton onPress={handleLogin} text="INICIAR SESIÓN" />
 
         <View style={styles.loginPrompt}>

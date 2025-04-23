@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
     name: "Usuario Ejemplo",
     email: "usuario@ejemplo.com",
     password: '12345678Q',
-    avatarUrl: null,
+    avatarUrl: '../assets/img/default-avatar.png',
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);

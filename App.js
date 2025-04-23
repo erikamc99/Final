@@ -1,5 +1,4 @@
-import React from 'react';
-import RootNavigator from './navigation/RootNavigator.jsx';
+import RootNavigator from './navigation/RootNavigator.js'
 import { SpaceProvider } from './context/SpaceContext.js';
 import { UserProvider } from './context/UserContext.js';
 

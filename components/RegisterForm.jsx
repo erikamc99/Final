@@ -18,7 +18,7 @@ export default function RegisterForm() {
 
   const handleRegister = () => {
     if (!username || !email || !password || !confirmPassword) {
-      setError('Todos los campos son obligatorios');
+      setError('*Todos los campos son obligatorios');
       return;
     }
   
@@ -42,6 +42,7 @@ export default function RegisterForm() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Registro de usuario</Text>
       <TextInput
         style={styles.input}
         placeholder="Usuario"
