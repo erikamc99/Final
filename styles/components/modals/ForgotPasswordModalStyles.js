@@ -3,19 +3,21 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     modalOverlay: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         backgroundColor: 'rgba(0,0,0,0.5)',
-        padding: 20,
     },
     modalContainer: {
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
         backgroundColor: 'white',
-        borderRadius: 12,
+        width: '100%',
+        minHeight: '40%',
         padding: 20,
         elevation: 5,
     },
     title: {
-        fontSize: 18,
-        marginBottom: 15,
+        fontSize: 20,
+        marginVertical: 15,
         fontWeight: 'bold',
     },
     input: {
@@ -23,18 +25,7 @@ export default StyleSheet.create({
         borderColor: '#ccc',
         borderRadius: 8,
         padding: 10,
-        marginBottom: 15,
-    },
-    button: {
-        backgroundColor: '#4285F4',
-        padding: 12,
-        borderRadius: 8,
-        alignItems: 'center',
-        marginBottom: 10,
-    },
-    buttonText: {
-        color: '#fff',
-        fontWeight: '600',
+        marginVertical: 10,
     },
     closeText: {
         color: '#555',

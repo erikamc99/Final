@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Modal, View, Text, TextInput } from 'react-native';
 import FormButton from '../FormButton';
 import styles from '../../styles/components/modals/ForgotPasswordModalStyles';
+import { Ionicons } from '@expo/vector-icons';
 
 export default function ForgotPasswordModal({ visible, onClose, onSend }) {
   const [email, setEmail] = useState('');
@@ -18,6 +19,7 @@ export default function ForgotPasswordModal({ visible, onClose, onSend }) {
     <Modal visible={visible} transparent animationType="slide">
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
+          <Ionicons name="close" size={28} color="black" onPress={onClose} style={{ alignSelf: 'flex-end' }} />
           <Text style={styles.title}>Recuperar contraseña</Text>
           <TextInput
             style={styles.input}
@@ -27,7 +29,7 @@ export default function ForgotPasswordModal({ visible, onClose, onSend }) {
             value={email}
             onChangeText={setEmail}
           />
-            <FormButton onPress={handleSend} text="ENVIAR" />
+          <FormButton onPress={handleSend} text="ENVIAR" />
           
         </View>
       </View>
