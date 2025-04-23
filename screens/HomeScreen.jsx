@@ -4,6 +4,7 @@ import SatisfactionMeter from '../components/cards/SatisfactionMeter';
 import AnimalCountsCard from '../components/cards/AnimalCountsCard';
 import useHelp from '../hooks/useHelp';
 import HelpModal from '../components/modals/HelpModal';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeScreen() {
   // Borrar al conectar a back
@@ -25,15 +26,10 @@ export default function HomeScreen() {
     onSkip,
   } = useHelp(('Home'));
 
+  const navigation = useNavigation();
+
   return (
     <ScrollView style={styles.container}>
-      <HelpModal
-        visible={visible}
-        text={currentText}
-        isLast={isLast}
-        onNext={onNext}
-        onSkip={onSkip}
-      />
       <View style={styles.cardLarge}>
         <Text style={styles.cardTitle}>Temperatura</Text>
         <View style={styles.cardContent}>
@@ -60,12 +56,19 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      <AnimalCountsCard galloCount={galloCount} gallinaCount={gallinaCount} pollitoCount={pollitoCount} />
+      <AnimalCountsCard galloCount={galloCount} gallinaCount={gallinaCount} pollitoCount={pollitoCount} openScreen={() => navigation.navigate('GestionAnimales')} />
 
       <View style={styles.satisfactionContainer}>
         <Text style={styles.sectionTitle}>Bienestar</Text>
         <SatisfactionMeter value={satisfactionValue} /> {/* Cambiar por la prop traida de back o hacer el calculo para ello */}
       </View>
+      <HelpModal
+        visible={visible}
+        text={currentText}
+        isLast={isLast}
+        onNext={onNext}
+        onSkip={onSkip}
+      />
     </ScrollView>
   );
 }
