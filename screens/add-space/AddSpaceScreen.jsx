@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import SectionHeader from '../../components/SectionHeader.jsx';
 import SelectModal from '../../components/modals/SelectModal.jsx';
+import useHelp from '../../hooks/useHelp.js';
+import HelpModal from '../../components/modals/HelpModal.jsx';
 
 export default function AddSpaceScreen() {
     const navigation = useNavigation();
@@ -36,11 +38,20 @@ export default function AddSpaceScreen() {
         }
     }   
 
+      const {
+        visible,
+        currentText,
+        isLast,
+        onNext,
+        onSkip,
+        triggerManually
+      } = useHelp(('AñadirEspacio'));
+
   return (
     <View style={styles.screen}>
         
-        <SectionHeader sectionTitle="Añadir espacio" />
-        <View style={styles.container}>
+      <SectionHeader sectionTitle="Añadir espacio" />
+      <View style={styles.container}>
         <Text style={styles.label}>Intruduzca el nombre de su espacio:</Text>
         <TextInput style={styles.input} placeholder="Ej: Corral de Moreda" value={spaceName} 
             onChangeText={(text) => {
@@ -64,11 +75,13 @@ export default function AddSpaceScreen() {
         options={spaceTypes}
         title="Seleccione un tipo"
         />
-    </View>
+      </View>
 
       <TouchableOpacity style={styles.button} onPress={validateAndProceed}>
         <Text style={styles.buttonText}>Siguiente</Text>
       </TouchableOpacity>
+      
+      <HelpModal visible={visible} text={currentText} isLast={isLast} onNext={onNext} onSkip={onSkip} />
     </View>
   );
 }

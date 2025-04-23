@@ -5,6 +5,8 @@ import SectionHeader from '../../components/SectionHeader.jsx';
 import SelectModal from '../../components/modals/SelectModal.jsx';
 import CountSelector from '../../components/CountSelector.jsx';
 import { useRoute, useNavigation } from '@react-navigation/native';
+import useHelp from '../../hooks/useHelp.js';
+import HelpModal from '../../components/modals/HelpModal.jsx';
 
 export default function AddAnimalScreen() {
   const [animal, setAnimal] = useState(null);
@@ -30,6 +32,15 @@ export default function AddAnimalScreen() {
   const navigation = useNavigation();
   
   const { spaceName, type } = route.params || {};
+
+    const {
+      visible,
+      currentText,
+      isLast,
+      onNext,
+      onSkip,
+      triggerManually
+    } = useHelp(('AñadirAnimal'));
 
   return (
     <View style={styles.container}>
@@ -84,10 +95,10 @@ export default function AddAnimalScreen() {
         console.log('Datos completos:', data);
         navigation.popToTop();
       }}
-      disabled={!animal || !breed}
-      >
+      disabled={!animal || !breed} >
         <Text style={styles.buttonText}>Guardar</Text>
       </TouchableOpacity>
+      <HelpModal visible={visible} text={currentText} isLast={isLast} onNext={onNext} onSkip={onSkip} />
     </View>
   );
 }

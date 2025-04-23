@@ -4,6 +4,8 @@ import { useUser } from '../context/UserContext';
 import { useState } from 'react';
 import { Feather } from '@expo/vector-icons';
 import ConfirmModal from '../components/modals/ConfirmModal';
+import HelpModal from '../components/modals/HelpModal.jsx';
+import useHelp from '../hooks/useHelp.js';
 
 export default function ProfileScreen() {
   const { user, setUser, setIsLoggedIn } = useUser();
@@ -34,6 +36,15 @@ export default function ProfileScreen() {
     console.log('¿Quieres cerrar sesión?');
     handleLogout();
   }
+
+    const {
+      visible,
+      currentText,
+      isLast,
+      onNext,
+      onSkip,
+      triggerManually
+    } = useHelp(('Perfil'));
 
   return (
       <View style={styles.container}>
@@ -80,6 +91,8 @@ export default function ProfileScreen() {
           onConfirm={confirmLogout}
           message="¿Estás seguro de que quieres cerrar sesión?"
         />
+
+        <HelpModal visible={visible} text={currentText} isLast={isLast} onNext={onNext} onSkip={onSkip} />
       </View>
   );
 }

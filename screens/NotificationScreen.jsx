@@ -1,6 +1,8 @@
 import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles/NotificationScreenStyles.js';
 import SectionHeader from '../components/SectionHeader.jsx';
+import HelpModal from '../components/modals/HelpModal.jsx';
+import useHelp from '../hooks/useHelp.js';
 
 //BORRAR al conectar al back
 const notifications = [
@@ -60,11 +62,20 @@ const getNotificationIcon = (type) => {
     }
   };
 
-export default function NotificationScreen() {
+  
+  export default function NotificationScreen() {
+  const {
+    visible,
+    currentText,
+    isLast,
+    onNext,
+    onSkip,
+    triggerManually
+  } = useHelp(('Notificaciones'));
     
     return (
         <ScrollView style={styles.container}>
-          <SectionHeader sectionTitle="Notificaciones" />
+          <SectionHeader sectionTitle="Notificaciones" onHelpPress={triggerManually}/>
             {notifications.map((n) => (
                 <View key={n.id} style={styles.card}>
                 <Image source={require('../assets/img/alert-icon.png')} style={styles.alertIcon} />
@@ -78,6 +89,13 @@ export default function NotificationScreen() {
                 <Image source={getNotificationIcon(n.type)} style={styles.typeIcon} />
                 </View>
             ))}
+                <HelpModal
+                  visible={visible}
+                  text={currentText}
+                  isLast={isLast}
+                  onNext={onNext}
+                  onSkip={onSkip}
+                />
         </ScrollView>
     )
 }

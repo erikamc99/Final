@@ -9,12 +9,14 @@ export default StyleSheet.create({
   },
   modal: {
     backgroundColor: 'white',
-    padding: 25,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
     borderRadius: 20,
   },
   contentText: {
-    fontSize: 16,
-    marginBottom: 10,
+    fontSize: 18,
+    marginBottom: 20,
+    marginTop: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
