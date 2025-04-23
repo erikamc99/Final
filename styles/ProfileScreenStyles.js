@@ -65,4 +65,15 @@ export default StyleSheet.create({
     textDecorationLine: 'underline',
     fontSize: 16,
   },
+  helpButton: {
+    alignSelf: 'flex-end',
+    marginBottom: 10,
+    position: 'absolute',
+    top: 5,
+    right: 5,
+  },
+  helpIcon: {
+    fontSize: 24,
+    color: '#333',
+  },
 });

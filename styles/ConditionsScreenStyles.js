@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({ 
-    container: {
+      container: {
         padding: 20,
         backgroundColor: '#fff',
       },
@@ -39,7 +39,7 @@ export default StyleSheet.create({
         right: -15,
       },
       helpIcon: {
-        fontSize: 22,
+        fontSize: 24,
         color: '#333',
       },
 })

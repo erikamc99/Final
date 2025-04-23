@@ -2,7 +2,7 @@ import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import styles from '../styles/ProfileScreenStyles';
 import { useUser } from '../context/UserContext'; 
 import { useState } from 'react';
-import { Feather } from '@expo/vector-icons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import ConfirmModal from '../components/modals/ConfirmModal';
 import HelpModal from '../components/modals/HelpModal.jsx';
 import useHelp from '../hooks/useHelp.js';
@@ -48,6 +48,9 @@ export default function ProfileScreen() {
 
   return (
       <View style={styles.container}>
+      <TouchableOpacity onPress={triggerManually} style={styles.helpButton}>
+        <Ionicons name="help-circle-outline" style={styles.helpIcon} />
+      </TouchableOpacity>
         <View style={styles.avatarContainer}>
           <Image source={
             user.avatarUrl ? { uri: user.avatarUrl } : require('../assets/img/default-avatar.png')

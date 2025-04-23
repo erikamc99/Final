@@ -78,7 +78,7 @@ export default StyleSheet.create({
     right: -15,
   },
   helpIcon: {
-    fontSize: 22,
+    fontSize: 24,
     color: '#333',
   },
 });
