@@ -3,6 +3,7 @@ import TabNavigator from './TabNavigator.jsx';
 import NotificationScreen from '../screens/NotificationScreen.jsx';
 import AddSpaceScreen from '../screens/add-space/AddSpaceScreen.jsx';
 import AddAnimalScreen from '../screens/add-space/AddAnimalScreen.jsx';
+import AnimalManagementScreen from '../screens/AnimalManagementScreen.jsx';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ export default function MainNavigator() {
       <Stack.Screen name="Notificaciones" component={NotificationScreen} />
       <Stack.Screen name="NuevoEspacio" component={AddSpaceScreen} />
       <Stack.Screen name="NuevoAnimal" component={AddAnimalScreen} />
+      <Stack.Screen name="GestionAnimales" component={AnimalManagementScreen} />
     </Stack.Navigator>
   );
 }

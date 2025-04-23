@@ -23,7 +23,7 @@ export default function HomeScreen() {
     isLast,
     onNext,
     onSkip,
-  } = useHelp();
+  } = useHelp(('Home'));
 
   return (
     <ScrollView style={styles.container}>
